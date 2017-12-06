@@ -1,0 +1,8 @@
+FROM node:alpine
+
+RUN npm i -g nodemon
+RUN npm i -g node-debug
+# ADD
+RUN npm cache clean
+RUN mkdir /app
+CMD ["nodemon"]

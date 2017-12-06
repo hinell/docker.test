@@ -1,0 +1,20 @@
+version: "3"
+services:
+  web:
+    image: nodemon
+    command: ["nodemon","-L","app.js" ]
+    restart: on-failure
+    expose: ["80"]
+    ports:
+      - "80:80"
+    deploy:
+      replicas: 6
+      resources:
+        limits:
+          cpus: "0.1"
+          memory: 50M
+    volumes:
+      - ".:/app"
+    working_dir: "/app"
+volumes:
+  mng:
